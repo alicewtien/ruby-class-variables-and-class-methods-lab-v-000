@@ -1,29 +1,30 @@
 class Song
-  @@count = 0
-  @@genres = []
-  @@artists = []
+  @@count = 0 # class variable for number of songs
+  @@genres = [] # class variable for generes
+  @@artists = [] # class variable for artists
 
   attr_reader :name, :artist, :genre
+  #only need attr_reader because each song is initialized with those 3 attr
 
   def initialize(name, artist, genre)
     @name = name
     @artist = artist
     @genre = genre
-    @@count += 1
-    @@artists << artist
-    @@genres << genre
+    @@count += 1 # counts each song
+    @@artists << artist # adds artist to the class variable array
+    @@genres << genre # adds genre to the class variable array
   end
 
   def self.count
-    @@count
+    @@count # number of songs in the class
   end
 
   def self.artists
-    @@artists.uniq
+    @@artists.uniq # lists artists without duplicates
   end
 
   def self.genres
-    @@genres.uniq
+    @@genres.uniq #lists genres without duplicates
   end
 
   def self.genre_count
